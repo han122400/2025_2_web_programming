@@ -2,6 +2,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
+import { Mail, Phone, Star, Target, Rocket } from 'lucide-react'
 import { fetchGitHubRepos } from '@/lib/github'
 import { ProcessedRepo } from '@/types/github'
 import { LanguageStats } from '@/components/LanguageStats'
@@ -89,19 +91,21 @@ function Hero() {
 
         <div className="w-full max-w-xs lg:w-64 p-3 rounded-2xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.03)] animate-float">
           <div className="w-full aspect-[4/3] rounded-lg bg-gradient-to-br from-[rgba(0,229,255,0.06)] to-transparent flex items-center justify-center overflow-hidden">
-            <img
+            <Image
               src="/images/me.png"
               alt="박한빈 프로필"
+              width={300}
+              height={225}
               className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
             />
           </div>
           <div className="mt-3 text-xs text-muted leading-relaxed">
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-[var(--accent)]">📞</span>
+              <Phone className="w-4 h-4 text-[var(--accent)]" />
               010-9737-1732
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[var(--accent)]">📧</span>
+              <Mail className="w-4 h-4 text-[var(--accent)]" />
               vinny122400@gmail.com
             </div>
           </div>
@@ -133,8 +137,9 @@ function ProjectCard({ project }: { project: ProcessedRepo }) {
               {project.title}
             </h3>
             {project.stars > 0 && (
-              <span className="text-xs text-yellow-400">
-                ⭐ {project.stars}
+              <span className="text-xs text-yellow-400 flex items-center gap-1">
+                <Star className="w-3 h-3" fill="currentColor" />
+                {project.stars}
               </span>
             )}
           </div>
@@ -267,9 +272,11 @@ export default function Page() {
           <div className="flex items-center gap-6 mb-6">
             {/* 멋쟁이사자처럼 로고 공간 */}
             <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center border border-orange-500/20 overflow-hidden">
-              <img
+              <Image
                 src="/images/likelion-logo.png"
                 alt="멋쟁이사자처럼 로고"
+                width={96}
+                height={96}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -289,10 +296,11 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3
-                className="text-lg font-semibold mb-3"
+                className="text-lg font-semibold mb-3 flex items-center gap-2"
                 style={{ color: '#FF6B00' }}
               >
-                🎯 활동 내용
+                <Target className="w-5 h-5" />
+                활동 내용
               </h3>
               <ul className="space-y-2 text-sm text-muted">
                 <li>• 웹 개발 기초부터 심화까지 학습</li>
@@ -305,10 +313,11 @@ export default function Page() {
 
             <div>
               <h3
-                className="text-lg font-semibold mb-3"
+                className="text-lg font-semibold mb-3 flex items-center gap-2"
                 style={{ color: '#FF6B00' }}
               >
-                🚀 주요 성과
+                <Rocket className="w-5 h-5" />
+                주요 성과
               </h3>
               <ul className="space-y-2 text-sm text-muted">
                 <li>• GitHub 포트폴리오 웹사이트 구축</li>
@@ -323,7 +332,7 @@ export default function Page() {
           <div className="mt-6 pt-6 border-t border-orange-500/10">
             <div className="flex items-center justify-between">
               <div className="text-sm text-muted">
-                "내 아이디어를 세상에 출시하자" - 멋쟁이사자처럼
+                &ldquo;내 아이디어를 세상에 출시하자&rdquo; - 멋쟁이사자처럼
               </div>
               <div className="flex gap-2">
                 <span className="px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-xs">
