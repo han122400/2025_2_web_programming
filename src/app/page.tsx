@@ -10,7 +10,7 @@ import { LanguageStats } from '@/components/LanguageStats'
 import { OverallLanguageStats } from '@/components/OverallLanguageStats'
 
 const GITHUB_URL = 'https://github.com/han122400' // HanBinPark GitHub 계정
-const PORTFOLIO_URL = 'https://your-deployed-service.example.com'
+const PORTFOLIO_URL = 'https://2025-2-web-programming-gqe7.vercel.app/'
 const TEAM_PAGE = '/team-project'
 
 function Header() {
